@@ -1,32 +1,41 @@
-# 🚀 Mini Project 1: Product Information System
+# Mini Project 1: Product Information System (Konsep & Desain)
 
-Tugas proyek kecil-kecilan buat belajar konsep **3-Tier Architecture** (Arsitektur 3 Lapis) di PHP[cite: 1]. Di sesi ini, fokus utamanya bukan langsung bikin web yang kompleks, tapi lebih ke **pematangan konsep dan alur logisnya dulu** (*Sesi Tanpa Coding / Pengetikan Kode*)[cite: 1].
+Proyek ini merupakan implementasi dasar dari Sistem Informasi Manajemen Produk menggunakan bahasa pemrograman PHP murni (Native). Proyek ini dikembangkan sebagai bagian dari tugas Mini Project 1 untuk memahami konsep dasar perancangan sistem sebelum masuk ke tahap penulisan kode (coding)[cite: 1]. 
 
----
-
-## 💡 Gimana Sistem Ini Dirancang?
-
-Jadi, sistem ini dibikin terpisah jadi 3 file biar kodenya rapi dan nggak numpuk di satu tempat (*Separation of Concerns*)[cite: 1]:
-
-1. **`products.php` (Data Layer)** 📦
-   * Berkas buat menampung data produk[cite: 1]. 
-   * Pakai *multidimensional array* yang isinya detail produk kayak ID, Nama, Kategori, Harga, Stok, dan Deskripsi[cite: 1].
-
-2. **`functions.php` (Processing Layer)** ⚙️
-   * Berkas tempat logika atau "otak" aplikasi[cite: 1].
-   * Isinya fungsi `hitungTotalNilaiStok()` buat ngitung total aset gudang, plus logika pengondisian buat nandain kalau ada produk yang stoknya mau habis (`stok < 3`)[cite: 1].
-
-3. **`index.php` (Presentation Layer)** 🖥️
-   * Berkas tampilan utama yang diakses di browser[cite: 1].
-   * Tinggal panggil dua berkas di atas pakai `require_once`, terus tampilkan datanya ke tabel HTML pakai perulangan `foreach`[cite: 1].
+Fokus utama dari repositori ini adalah penerapan 3-Tier Architecture (Arsitektur Tiga Lapis) untuk melatih prinsip Separation of Concerns (pemisahan tanggung jawab kode) agar aplikasi lebih modular, rapi, dan mudah dikembangkan[cite: 1].
 
 ---
 
-## 📁 Struktur Folder Proyek
+## Fitur dan Alur Sistem
+
+Meskipun masih dalam tahap desain cetak biru (blueprint), sistem ini dirancang untuk dapat melakukan hal-hal berikut[cite: 1]:
+1. Penyimpanan Data Terstruktur: Menggunakan array multidimensi untuk menampung data komoditas produk beserta atribut kelengkapannya[cite: 1].
+2. Kalkulasi Otomatis: Menghitung total nilai aset gudang berdasarkan jumlah stok dan harga masing-masing produk[cite: 1].
+3. Peringatan Stok Kritis: Memberikan penanda khusus pada antarmuka pengguna jika ada produk yang stoknya tersisa kurang dari 3 unit[cite: 1].
+
+---
+
+## Desain Arsitektur Sistem
+
+Untuk menghindari penumpukan kode dalam satu file, sistem ini dipecah menjadi tiga lapisan utama[cite: 1]:
+
+* 1. Data Layer (`products.php`)
+  Bertugas khusus sebagai tempat penyimpanan data statis. Semua data komoditas produk disimpan di sini dalam bentuk multidimensional array agar mudah dikelola dan dipanggil oleh file lain[cite: 1].
+  
+* 2. Processing Layer (`functions.php`)
+  Bertindak sebagai pusat logika aplikasi. File ini tidak mengurus tampilan maupun menyimpan data mentah, melainkan hanya berisi kumpulan fungsi logika. Contohnya adalah fungsi `hitungTotalNilaiStok()` dan logika pengondisian (if/else) untuk mengecek status stok kritis[cite: 1].
+
+* 3. Presentation Layer (`index.php`)
+  Berfungsi sebagai antarmuka pengguna (User Interface). File ini akan mengimpor data dari `products.php` dan logika dari `functions.php` menggunakan perintah `require_once`, lalu merendernya ke dalam layout tabel HTML menggunakan perulangan `foreach`[cite: 1].
+
+---
+
+## Struktur Repositori
 
 ```text
 .
-├── products.php      # Tempat simpan array data produk
-├── functions.php     # Tempat fungsi perhitungan & logika
-├── index.php         # Tampilan tabel HTML
-└── README.md         # Catatan tugas & jawaban evaluasi
+├── products.php             # File Data Layer (Database array sementara)
+├── functions.php            # File Processing Layer (Fungsi & Logika bisnis)
+├── index.php                # File Presentation Layer (Tampilan UI/HTML)
+├── PRD_dan_Perencanaan.md   # Dokumen rincian arsitektur & jawaban evaluasi kelas
+└── README.md                # Dokumentasi utama proyek
