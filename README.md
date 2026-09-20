@@ -42,7 +42,3 @@ Berfungsi sebagai antarmuka pengguna (UI) untuk menampilkan data produk kepada p
   * Menerapkan pewarnaan kondisional pada baris tabel berdasarkan status stok kritis.
 
 ---
-
-##  Catatan Pengembangan
-* Sesi ini berfokus pada **pemetaan dan pematangan cetak biru (blueprint)** arsitektur desain secara logis.
-* Implementasi baris kode (*coding*) dilakukan pada tahap pengembangan selanjutnya.
