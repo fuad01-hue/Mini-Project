@@ -1,1 +1,1 @@
-# Mini-Project
+# Mini Project 1: Product Information System
