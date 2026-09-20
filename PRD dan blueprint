@@ -1,0 +1,128 @@
+Berikut adalah revisi untuk kedua file tersebut tanpa menggunakan emotikon sama sekali. Bahasanya tetap dijaga agar terstruktur, rapi, dan mencerminkan hasil analisis tugas mahasiswa yang komprehensif.
+
+Silakan salin teks di bawah ini untuk masing-masing file:
+
+---
+
+### 1. File `README.md`
+
+*(Gunakan ini untuk halaman depan repositori)*
+
+```markdown
+# Mini Project 1: Product Information System (Konsep & Desain)
+
+Proyek ini merupakan implementasi dasar dari Sistem Informasi Manajemen Produk menggunakan bahasa pemrograman PHP murni (Native). Proyek ini dikembangkan sebagai bagian dari tugas Mini Project 1 untuk memahami konsep dasar perancangan sistem sebelum masuk ke tahap penulisan kode (coding)[cite: 1]. 
+
+Fokus utama dari repositori ini adalah penerapan 3-Tier Architecture (Arsitektur Tiga Lapis) untuk melatih prinsip Separation of Concerns (pemisahan tanggung jawab kode) agar aplikasi lebih modular, rapi, dan mudah dikembangkan[cite: 1].
+
+---
+
+## Fitur dan Alur Sistem
+
+Meskipun masih dalam tahap desain cetak biru (blueprint), sistem ini dirancang untuk dapat melakukan hal-hal berikut[cite: 1]:
+1. Penyimpanan Data Terstruktur: Menggunakan array multidimensi untuk menampung data komoditas produk beserta atribut kelengkapannya[cite: 1].
+2. Kalkulasi Otomatis: Menghitung total nilai aset gudang berdasarkan jumlah stok dan harga masing-masing produk[cite: 1].
+3. Peringatan Stok Kritis: Memberikan penanda khusus pada antarmuka pengguna jika ada produk yang stoknya tersisa kurang dari 3 unit[cite: 1].
+
+---
+
+## Desain Arsitektur Sistem
+
+Untuk menghindari penumpukan kode dalam satu file, sistem ini dipecah menjadi tiga lapisan utama[cite: 1]:
+
+* 1. Data Layer (`products.php`)
+  Bertugas khusus sebagai tempat penyimpanan data statis. Semua data komoditas produk disimpan di sini dalam bentuk multidimensional array agar mudah dikelola dan dipanggil oleh file lain[cite: 1].
+  
+* 2. Processing Layer (`functions.php`)
+  Bertindak sebagai pusat logika aplikasi. File ini tidak mengurus tampilan maupun menyimpan data mentah, melainkan hanya berisi kumpulan fungsi logika. Contohnya adalah fungsi `hitungTotalNilaiStok()` dan logika pengondisian (if/else) untuk mengecek status stok kritis[cite: 1].
+
+* 3. Presentation Layer (`index.php`)
+  Berfungsi sebagai antarmuka pengguna (User Interface). File ini akan mengimpor data dari `products.php` dan logika dari `functions.php` menggunakan perintah `require_once`, lalu merendernya ke dalam layout tabel HTML menggunakan perulangan `foreach`[cite: 1].
+
+---
+
+## Struktur Repositori
+
+```text
+.
+├── products.php             # File Data Layer (Database array sementara)
+├── functions.php            # File Processing Layer (Fungsi & Logika bisnis)
+├── index.php                # File Presentation Layer (Tampilan UI/HTML)
+├── PRD_dan_Perencanaan.md   # Dokumen rincian arsitektur & jawaban evaluasi kelas
+└── README.md                # Dokumentasi utama proyek
+
+```
+
+---
+
+## Dokumen Perencanaan dan Analisis
+
+Perancangan konseptual yang lebih mendalam, rincian struktur data, serta analisis teknis (jawaban dari sesi diskusi evaluatif) telah didokumentasikan dalam berkas terpisah.
+
+Silakan baca dokumen lengkapnya di sini: **[Baca PRD dan Blueprint Sistem](https://www.google.com/search?q=PRD_dan_Perencanaan.md&utm_source=gemini)**
+
+```
+
+---
+
+### 2. File `PRD_dan_Perencanaan.md`
+*(Gunakan ini untuk dokumen blueprint dan evaluasinya)*
+
+```markdown
+# Blueprint dan Analisis Evaluasi Sistem
+
+Dokumen ini disusun untuk melengkapi Mini Project 1: Product Information System. Sesuai dengan instruksi sesi saat ini, pembelajaran hanya difokuskan pada pematangan cetak biru (blueprint) konsep arsitektur secara logis (Sesi Tanpa Coding / Pengetikan Kode)[cite: 1]. 
+
+Selain memuat struktur rancangan, dokumen ini juga memuat evaluasi analitis dari sesi diskusi kelas.
+
+---
+
+## Bagian 1: Spesifikasi Arsitektur Sistem
+
+Sistem ini dibangun dengan pendekatan Layered Architecture yang membagi program menjadi tiga berkas utama[cite: 1]:
+
+### A. Komponen Data (`products.php`)
+File ini menggunakan multidimensional array sebagai pengganti database sementara untuk menyimpan data komoditas produk[cite: 1]. 
+Setiap item produk akan memiliki pemetaan atribut sebagai berikut[cite: 1]:
+- `ID` (Identifier unik produk)
+- `Nama` (Nama komoditas)
+- `Kategori` (Jenis produk)
+- `Harga` (Nominal harga satuan)
+- `Stok` (Jumlah ketersediaan barang)
+- `Deskripsi` (Informasi detail produk)
+
+### B. Komponen Logika (`functions.php`)
+Berisi fungsi-fungsi matematis dan kondisional yang diperlukan aplikasi, meliputi[cite: 1]:
+- Kalkulasi Aset: Fungsi `hitungTotalNilaiStok()` yang akan melakukan perulangan ke seluruh data produk, mengalikan nilai Harga dengan Stok, lalu menjumlahkan semuanya untuk mendapatkan total nilai aset gudang[cite: 1].
+- Filter Stok: Logika kondisional yang dirancang untuk mendeteksi apabila nilai pada atribut Stok kurang dari 3 (< 3)[cite: 1]. Jika kondisi ini terpenuhi, fungsi akan mengembalikan nilai true yang nantinya digunakan oleh antarmuka untuk mengubah warna baris tabel produk tersebut[cite: 1].
+
+### C. Komponen Presentasi (`index.php`)
+Menyatukan lapisan data dan logika menggunakan statement `require_once`[cite: 1]. Data yang sudah diproses kemudian dirender menggunakan perulangan `foreach` untuk dicetak ke dalam tag-tag penyusun tabel HTML agar mudah dibaca oleh pengguna[cite: 1].
+
+---
+
+## Bagian 2: Jawaban Pertanyaan Evaluatif (Sesi Diskusi)
+
+Berikut adalah analisis konseptual untuk menjawab pertanyaan-pertanyaan evaluatif pada sesi diskusi kelas[cite: 4]:
+
+### 1. Keunggulan Associative Array Dibandingkan Indexed Array
+Dalam memetakan spesifikasi detail produk, associative array dinilai jauh lebih representatif karena menggunakan kunci (key) berupa teks deskriptif (contoh: 'harga' atau 'stok')[cite: 1, 4]. Hal ini membuat kode bersifat self-documenting atau bisa menjelaskan dirinya sendiri tanpa perlu komentar tambahan[cite: 4]. 
+
+Dari sisi keamanan, associative array sangat kebal terhadap perubahan struktur[cite: 4]. Jika kita menggunakan indexed array dan suatu saat menyisipkan atribut baru di urutan kedua, seluruh nomor indeks di bawahnya akan bergeser, yang berisiko merusak logika pemanggilan data di seluruh sistem[cite: 4].
+
+### 2. Bahaya Fatal Penggunaan include untuk File Database
+Jika seorang developer ceroboh menggunakan include untuk memuat file koneksi database dan file tersebut ternyata tidak ditemukan (misal karena salah letak atau typo), PHP hanya akan memberikan peringatan (Warning) namun eksekusi kode akan tetap dilanjutkan ke baris bawahnya[cite: 4]. 
+
+Konsekuensinya sangat fatal: query database seperti perintah SELECT, INSERT, atau UPDATE akan dipaksa berjalan tanpa adanya koneksi yang terhubung[cite: 4]. Ini akan menyebabkan error yang bertumpuk (cascading errors) dan berisiko membocorkan informasi sensitif server kepada pengguna[cite: 4]. Sebaliknya, penggunaan require akan menghasilkan Fatal Error dan langsung mematikan eksekusi program demi keamanan aplikasi[cite: 4].
+
+### 3. Kesulitan dalam Menangani Logic Error vs Syntax Error
+Penanganan galat logika (logic error) memakan durasi yang jauh lebih lama karena program akan berjalan dengan sangat lancar tanpa memberikan pesan error apa pun dari sistem PHP[cite: 4]. Masalahnya hanya terlihat pada hasil akhirnya yang salah (misalnya, total aset gudang bernilai minus)[cite: 4]. Untuk memperbaikinya, developer harus melakukan tracing dan memeriksa alur variabel baris demi baris secara manual[cite: 4]. 
+
+Hal ini sangat berbeda dengan galat sintaksis (syntax error) di mana interpreter PHP akan langsung menolak menjalankan aplikasi dan memberikan informasi spesifik mengenai nama file serta nomor baris yang mengalami kesalahan penulisan, sehingga sangat cepat untuk dideteksi dan diperbaiki[cite: 4].
+
+### 4. Bahaya Struktural Nesting Terlalu Dalam Terhadap Optimasi Memori
+Berdasarkan tinjauan optimasi memori, seluruh array di dalam PHP dialokasikan ke dalam memori utama (RAM) server[cite: 4]. Jika struktur arsitektur database direplikasi menjadi multidimensional array dengan tingkat nesting (bersarang) yang terlalu dalam, sistem harus memetakan referensi memori yang sangat kompleks (high memory footprint)[cite: 4]. 
+
+Dalam jangka panjang, ketika jumlah data sudah membesar, proses untuk membaca data yang berada di lapisan paling dalam akan memaksa aplikasi melakukan perulangan bertumpuk (nested loops)[cite: 4]. Ini akan meningkatkan waktu pemrosesan secara eksponensial (kinerja melambat secara drastis) dan berpotensi membuat server kehabisan kapasitas memori (Out of Memory)[cite: 4].
+
+```
