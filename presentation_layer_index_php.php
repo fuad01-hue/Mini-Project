@@ -1,7 +1,5 @@
 <?php
-// Presentation Layer - Antarmuka tabel HTML
 
-// Mengintegrasikan Data Layer dan Processing Layer
 require_once 'products.php';
 require_once 'functions.php';
 ?>
