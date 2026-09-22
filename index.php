@@ -58,7 +58,7 @@ require_once 'functions.php';
 </head>
 <body>
 
-    <h1>📦 Daftar Komoditas Produk</h1>
+    <h1> Daftar Komoditas Produk</h1>
     
     <table>
         <thead>
