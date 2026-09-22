@@ -1,5 +1,4 @@
 <?php
-// Data Layer - Menyimpan array multidimensi data produk
 
 $products = [
     [
