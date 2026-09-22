@@ -20,7 +20,7 @@ functions.php - Pemrosesan logika (Processing Layer).
 
 index.php - Tampilan antarmuka (Presentation Layer).
 
-Catatan: Untuk detail arsitektur logis dan desain sistem secara mendalam, silakan klik dan baca dokumen ./BLUEPRINT.md.
+Catatan: Untuk detail arsitektur logis dan desain sistem secara mendalam, silakan klik dan baca dokumen [BLUEPRINT.md](./BLUEPRINT.md).
 
 ## Cara Penggunaan
 
