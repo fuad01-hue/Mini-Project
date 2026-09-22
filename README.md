@@ -1,44 +1,31 @@
-# Product Information System - System Architecture & Design Blueprint
+# Sistem Informasi Produk
 
-Sistem Informasi Produk berbasis web sederhana yang dirancang menggunakan arsitektur 3-Layer (Data, Processing, Presentation) dengan PHP. Repositori ini berisi dokumen desain konseptual dan cetak biru arsitektur logis sistem sebelum tahap implementasi kode.
+Sistem Informasi Produk berbasis web sederhana yang dikembangkan dengan PHP. Proyek ini mengimplementasikan konsep pemisahan tanggung jawab (Separation of Concerns) untuk menjaga keteraturan dan kemudahan pemeliharaan kode.
 
----
+## Fitur Utama
 
-##  Arsitektur Sistem
+Menampilkan daftar komoditas produk secara dinamis.
 
-Proyek ini membagi sistem ke dalam 3 lapisan utama (*3-tier architecture concept*) untuk menjaga keteraturan struktur kode dan pemisahan tanggung jawab (*Separation of Concerns*):
+Kalkulasi otomatis total nilai aset produk di gudang berdasarkan harga dan ketersediaan.
 
-```
-├── 1. Data Layer          --> products.php  (Menyimpan array data produk)
-├── 2. Processing Layer    --> functions.php (Fungsi kalkulasi & logika bisnis)
-└── 3. Presentation Layer  --> index.php     (Antarmuka tabel HTML)
-```
+Indikator visual otomatis untuk item dengan stok kritis (Stok < 3).
 
----
+## Struktur Utama
 
-##  Komponen Arsitektur Desain
+Sistem dibangun berdasarkan 3 komponen utama:
 
-### 1. Data Layer (`products.php`)
-Berfungsi sebagai tempat penyimpanan data komoditas produk sementara dalam bentuk **Multidimensional Array** (sebelum diintegrasikan dengan Database SQL).
-* **Atribut Data:**
-  * `ID` (Unique Identifier)
-  * `Nama` (Nama Produk)
-  * `Kategori` (Jenis / Kelompok Produk)
-  * `Harga` (Harga Satuan)
-  * `Stok` (Jumlah Ketersediaan)
-  * `Deskripsi` (Keterangan Ringkas)
+products.php - Penyimpanan data (Data Layer).
 
-### 2. Processing Layer (`functions.php`)
-Berfungsi sebagai modul logika bisnis dan pemrosesan data sistem.
-* **Fitur & Logika Utama:**
-  * `hitungTotalNilaiStok()`: Fungsi kalkulasi untuk menghitung total nilai aset produk di gudang ($Total = Harga \times Stok$).
-  * **Conditional Logic (Stok Kritis):** Memeriksa ambang batas ketersediaan barang. Jika `Stok < 3`, sistem akan menandai baris data tersebut untuk penyesuaian visual (*highlight/alert*).
+functions.php - Pemrosesan logika (Processing Layer).
 
-### 3. Presentation Layer (`index.php`)
-Berfungsi sebagai antarmuka pengguna (UI) untuk menampilkan data produk kepada pengguna akhir.
-* **Integrasi & Rendering:**
-  * Menghubungkan seluruh komponen menggunakan instruksi `require_once` untuk memuat `products.php` dan `functions.php`.
-  * Merender data ke dalam bentuk **Tabel HTML** secara dinamis menggunakan perulangan (`foreach`).
-  * Menerapkan pewarnaan kondisional pada baris tabel berdasarkan status stok kritis.
+index.php - Tampilan antarmuka (Presentation Layer).
 
----
+Catatan: Untuk detail arsitektur logis dan desain sistem secara mendalam, silakan merujuk pada file BLUEPRINT.md.
+
+## Cara Penggunaan
+
+Pastikan server lokal (seperti XAMPP, MAMP, atau Laragon) sudah berjalan.
+
+Tempatkan folder proyek di dalam direktori htdocs (XAMPP) atau www (Laragon/WAMP).
+
+Buka browser dan akses http://localhost/nama-folder-proyek.
